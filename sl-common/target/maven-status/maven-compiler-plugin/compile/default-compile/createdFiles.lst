@@ -1,0 +1,5 @@
+com\shaolei\enums\ErrorCodeEnum.class
+com\shaolei\exception\BusinessException.class
+com\shaolei\enums\IErrorCode.class
+com\shaolei\utils\SnowFlakeUtil.class
+com\shaolei\common\Result.class

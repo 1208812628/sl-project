@@ -1,0 +1,16 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: sl-base
+  cloud:
+    nacos:
+      config:
+        server-addr: 101.35.195.6:8848
+        namespace: dev
+        shared-dataids: env.yaml,common.yaml,sl-base.yaml
+      discovery:
+        namespace: dev
+        server-addr: 101.35.195.6:8848
+  main:
+    allow-bean-definition-overriding: true

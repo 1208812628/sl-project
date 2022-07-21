@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shaolei.base.dao.OpOaOrderMapper">
+  <resultMap id="BaseResultMap" type="com.shaolei.base.entity.OpOaOrder">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="USER_CODE" jdbcType="VARCHAR" property="userCode" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="DELETE_FLAG" jdbcType="BIT" property="deleteFlag" />
+    <result column="DISABLE_FLAG" jdbcType="BIT" property="disableFlag" />
+    <result column="CREATOR" jdbcType="BIGINT" property="creator" />
+    <result column="LAST_MODIFIER" jdbcType="BIGINT" property="lastModifier" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, USER_ID, USER_CODE, PASSWORD, DELETE_FLAG, DISABLE_FLAG, CREATOR, LAST_MODIFIER, 
+    CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from base_user_login_copy
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from base_user_login_copy
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shaolei.base.entity.OpOaOrder">
+    insert into base_user_login_copy (ID, USER_ID, USER_CODE, 
+      PASSWORD, DELETE_FLAG, DISABLE_FLAG, 
+      CREATOR, LAST_MODIFIER, CREATE_TIME, 
+      UPDATE_TIME)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{userCode,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{deleteFlag,jdbcType=BIT}, #{disableFlag,jdbcType=BIT}, 
+      #{creator,jdbcType=BIGINT}, #{lastModifier,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shaolei.base.entity.OpOaOrder">
+    insert into base_user_login_copy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userCode != null">
+        USER_CODE,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="deleteFlag != null">
+        DELETE_FLAG,
+      </if>
+      <if test="disableFlag != null">
+        DISABLE_FLAG,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="lastModifier != null">
+        LAST_MODIFIER,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userCode != null">
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=BIT},
+      </if>
+      <if test="disableFlag != null">
+        #{disableFlag,jdbcType=BIT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="lastModifier != null">
+        #{lastModifier,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shaolei.base.entity.OpOaOrder">
+    update base_user_login_copy
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userCode != null">
+        USER_CODE = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null">
+        DELETE_FLAG = #{deleteFlag,jdbcType=BIT},
+      </if>
+      <if test="disableFlag != null">
+        DISABLE_FLAG = #{disableFlag,jdbcType=BIT},
+      </if>
+      <if test="creator != null">
+        CREATOR = #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="lastModifier != null">
+        LAST_MODIFIER = #{lastModifier,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shaolei.base.entity.OpOaOrder">
+    update base_user_login_copy
+    set USER_ID = #{userId,jdbcType=BIGINT},
+      USER_CODE = #{userCode,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      DELETE_FLAG = #{deleteFlag,jdbcType=BIT},
+      DISABLE_FLAG = #{disableFlag,jdbcType=BIT},
+      CREATOR = #{creator,jdbcType=BIGINT},
+      LAST_MODIFIER = #{lastModifier,jdbcType=BIGINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shaolei.base.entity.OpOaOrder">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="SYSTEM_CODE" jdbcType="VARCHAR" property="systemCode" />
+    <result column="BILL_TYPE" jdbcType="VARCHAR" property="billType" />
+    <result column="APPLY_NO" jdbcType="VARCHAR" property="applyNo" />
+    <result column="APPLY_TITLE" jdbcType="VARCHAR" property="applyTitle" />
+    <result column="APPLY_REMARK" jdbcType="VARCHAR" property="applyRemark" />
+    <result column="APPLY_AMOUNT" jdbcType="DECIMAL" property="applyAmount" />
+    <result column="EMPLOYEE_NO" jdbcType="VARCHAR" property="employeeNo" />
+    <result column="EMPLOYEE_NAME" jdbcType="VARCHAR" property="employeeName" />
+    <result column="APPLY_DATE" jdbcType="VARCHAR" property="applyDate" />
+    <result column="APPLY_URL" jdbcType="VARCHAR" property="applyUrl" />
+    <result column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
+    <result column="GROUP_CODE" jdbcType="VARCHAR" property="groupCode" />
+    <result column="GROUP_ID" jdbcType="VARCHAR" property="groupId" />
+    <result column="ENABLED_FLAG" jdbcType="VARCHAR" property="enabledFlag" />
+    <result column="VALIDITY_FLAG" jdbcType="VARCHAR" property="validityFlag" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="LAST_UPDATE_BY" jdbcType="VARCHAR" property="lastUpdateBy" />
+    <result column="LAST_UPDATE_DATE" jdbcType="TIMESTAMP" property="lastUpdateDate" />
+    <result column="EXTEND_S1" jdbcType="VARCHAR" property="extendS1" />
+    <result column="EXTEND_S2" jdbcType="VARCHAR" property="extendS2" />
+    <result column="EXTEND_S3" jdbcType="VARCHAR" property="extendS3" />
+    <result column="EXTEND_S4" jdbcType="VARCHAR" property="extendS4" />
+    <result column="EXTEND_S5" jdbcType="VARCHAR" property="extendS5" />
+    <result column="EXTEND_S6" jdbcType="VARCHAR" property="extendS6" />
+    <result column="EXTEND_S7" jdbcType="VARCHAR" property="extendS7" />
+    <result column="EXTEND_S8" jdbcType="VARCHAR" property="extendS8" />
+    <result column="EXTEND_S9" jdbcType="VARCHAR" property="extendS9" />
+    <result column="EXTEND_S10" jdbcType="VARCHAR" property="extendS10" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, SYSTEM_CODE, BILL_TYPE, APPLY_NO, APPLY_TITLE, APPLY_REMARK, APPLY_AMOUNT, EMPLOYEE_NO, 
+    EMPLOYEE_NAME, APPLY_DATE, APPLY_URL, DEPT_CODE, GROUP_CODE, GROUP_ID, ENABLED_FLAG, 
+    VALIDITY_FLAG, CREATE_BY, CREATE_DATE, LAST_UPDATE_BY, LAST_UPDATE_DATE, EXTEND_S1, 
+    EXTEND_S2, EXTEND_S3, EXTEND_S4, EXTEND_S5, EXTEND_S6, EXTEND_S7, EXTEND_S8, EXTEND_S9, 
+    EXTEND_S10
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from op_oa_order
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from op_oa_order
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shaolei.base.entity.OpOaOrder">
+    insert into op_oa_order (ID, SYSTEM_CODE, BILL_TYPE, 
+      APPLY_NO, APPLY_TITLE, APPLY_REMARK, 
+      APPLY_AMOUNT, EMPLOYEE_NO, EMPLOYEE_NAME, 
+      APPLY_DATE, APPLY_URL, DEPT_CODE, 
+      GROUP_CODE, GROUP_ID, ENABLED_FLAG, 
+      VALIDITY_FLAG, CREATE_BY, CREATE_DATE, 
+      LAST_UPDATE_BY, LAST_UPDATE_DATE, EXTEND_S1, 
+      EXTEND_S2, EXTEND_S3, EXTEND_S4, 
+      EXTEND_S5, EXTEND_S6, EXTEND_S7, 
+      EXTEND_S8, EXTEND_S9, EXTEND_S10
+      )
+    values (#{id,jdbcType=VARCHAR}, #{systemCode,jdbcType=VARCHAR}, #{billType,jdbcType=VARCHAR}, 
+      #{applyNo,jdbcType=VARCHAR}, #{applyTitle,jdbcType=VARCHAR}, #{applyRemark,jdbcType=VARCHAR}, 
+      #{applyAmount,jdbcType=DECIMAL}, #{employeeNo,jdbcType=VARCHAR}, #{employeeName,jdbcType=VARCHAR}, 
+      #{applyDate,jdbcType=VARCHAR}, #{applyUrl,jdbcType=VARCHAR}, #{deptCode,jdbcType=VARCHAR}, 
+      #{groupCode,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, #{enabledFlag,jdbcType=VARCHAR}, 
+      #{validityFlag,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=TIMESTAMP}, #{extendS1,jdbcType=VARCHAR}, 
+      #{extendS2,jdbcType=VARCHAR}, #{extendS3,jdbcType=VARCHAR}, #{extendS4,jdbcType=VARCHAR}, 
+      #{extendS5,jdbcType=VARCHAR}, #{extendS6,jdbcType=VARCHAR}, #{extendS7,jdbcType=VARCHAR}, 
+      #{extendS8,jdbcType=VARCHAR}, #{extendS9,jdbcType=VARCHAR}, #{extendS10,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shaolei.base.entity.OpOaOrder">
+    insert into op_oa_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="systemCode != null">
+        SYSTEM_CODE,
+      </if>
+      <if test="billType != null">
+        BILL_TYPE,
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO,
+      </if>
+      <if test="applyTitle != null">
+        APPLY_TITLE,
+      </if>
+      <if test="applyRemark != null">
+        APPLY_REMARK,
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT,
+      </if>
+      <if test="employeeNo != null">
+        EMPLOYEE_NO,
+      </if>
+      <if test="employeeName != null">
+        EMPLOYEE_NAME,
+      </if>
+      <if test="applyDate != null">
+        APPLY_DATE,
+      </if>
+      <if test="applyUrl != null">
+        APPLY_URL,
+      </if>
+      <if test="deptCode != null">
+        DEPT_CODE,
+      </if>
+      <if test="groupCode != null">
+        GROUP_CODE,
+      </if>
+      <if test="groupId != null">
+        GROUP_ID,
+      </if>
+      <if test="enabledFlag != null">
+        ENABLED_FLAG,
+      </if>
+      <if test="validityFlag != null">
+        VALIDITY_FLAG,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="lastUpdateBy != null">
+        LAST_UPDATE_BY,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="extendS1 != null">
+        EXTEND_S1,
+      </if>
+      <if test="extendS2 != null">
+        EXTEND_S2,
+      </if>
+      <if test="extendS3 != null">
+        EXTEND_S3,
+      </if>
+      <if test="extendS4 != null">
+        EXTEND_S4,
+      </if>
+      <if test="extendS5 != null">
+        EXTEND_S5,
+      </if>
+      <if test="extendS6 != null">
+        EXTEND_S6,
+      </if>
+      <if test="extendS7 != null">
+        EXTEND_S7,
+      </if>
+      <if test="extendS8 != null">
+        EXTEND_S8,
+      </if>
+      <if test="extendS9 != null">
+        EXTEND_S9,
+      </if>
+      <if test="extendS10 != null">
+        EXTEND_S10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="systemCode != null">
+        #{systemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="billType != null">
+        #{billType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTitle != null">
+        #{applyTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="applyRemark != null">
+        #{applyRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="employeeNo != null">
+        #{employeeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeName != null">
+        #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        #{applyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUrl != null">
+        #{applyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null">
+        #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="groupCode != null">
+        #{groupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="enabledFlag != null">
+        #{enabledFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="validityFlag != null">
+        #{validityFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendS1 != null">
+        #{extendS1,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS2 != null">
+        #{extendS2,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS3 != null">
+        #{extendS3,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS4 != null">
+        #{extendS4,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS5 != null">
+        #{extendS5,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS6 != null">
+        #{extendS6,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS7 != null">
+        #{extendS7,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS8 != null">
+        #{extendS8,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS9 != null">
+        #{extendS9,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS10 != null">
+        #{extendS10,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shaolei.base.entity.OpOaOrder">
+    update op_oa_order
+    <set>
+      <if test="systemCode != null">
+        SYSTEM_CODE = #{systemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="billType != null">
+        BILL_TYPE = #{billType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null">
+        APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTitle != null">
+        APPLY_TITLE = #{applyTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="applyRemark != null">
+        APPLY_REMARK = #{applyRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="employeeNo != null">
+        EMPLOYEE_NO = #{employeeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeName != null">
+        EMPLOYEE_NAME = #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        APPLY_DATE = #{applyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUrl != null">
+        APPLY_URL = #{applyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null">
+        DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="groupCode != null">
+        GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        GROUP_ID = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="enabledFlag != null">
+        ENABLED_FLAG = #{enabledFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="validityFlag != null">
+        VALIDITY_FLAG = #{validityFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        CREATE_BY = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        LAST_UPDATE_BY = #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendS1 != null">
+        EXTEND_S1 = #{extendS1,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS2 != null">
+        EXTEND_S2 = #{extendS2,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS3 != null">
+        EXTEND_S3 = #{extendS3,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS4 != null">
+        EXTEND_S4 = #{extendS4,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS5 != null">
+        EXTEND_S5 = #{extendS5,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS6 != null">
+        EXTEND_S6 = #{extendS6,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS7 != null">
+        EXTEND_S7 = #{extendS7,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS8 != null">
+        EXTEND_S8 = #{extendS8,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS9 != null">
+        EXTEND_S9 = #{extendS9,jdbcType=VARCHAR},
+      </if>
+      <if test="extendS10 != null">
+        EXTEND_S10 = #{extendS10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shaolei.base.entity.OpOaOrder">
+    update op_oa_order
+    set SYSTEM_CODE = #{systemCode,jdbcType=VARCHAR},
+      BILL_TYPE = #{billType,jdbcType=VARCHAR},
+      APPLY_NO = #{applyNo,jdbcType=VARCHAR},
+      APPLY_TITLE = #{applyTitle,jdbcType=VARCHAR},
+      APPLY_REMARK = #{applyRemark,jdbcType=VARCHAR},
+      APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+      EMPLOYEE_NO = #{employeeNo,jdbcType=VARCHAR},
+      EMPLOYEE_NAME = #{employeeName,jdbcType=VARCHAR},
+      APPLY_DATE = #{applyDate,jdbcType=VARCHAR},
+      APPLY_URL = #{applyUrl,jdbcType=VARCHAR},
+      DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+      GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+      GROUP_ID = #{groupId,jdbcType=VARCHAR},
+      ENABLED_FLAG = #{enabledFlag,jdbcType=VARCHAR},
+      VALIDITY_FLAG = #{validityFlag,jdbcType=VARCHAR},
+      CREATE_BY = #{createBy,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      LAST_UPDATE_BY = #{lastUpdateBy,jdbcType=VARCHAR},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      EXTEND_S1 = #{extendS1,jdbcType=VARCHAR},
+      EXTEND_S2 = #{extendS2,jdbcType=VARCHAR},
+      EXTEND_S3 = #{extendS3,jdbcType=VARCHAR},
+      EXTEND_S4 = #{extendS4,jdbcType=VARCHAR},
+      EXTEND_S5 = #{extendS5,jdbcType=VARCHAR},
+      EXTEND_S6 = #{extendS6,jdbcType=VARCHAR},
+      EXTEND_S7 = #{extendS7,jdbcType=VARCHAR},
+      EXTEND_S8 = #{extendS8,jdbcType=VARCHAR},
+      EXTEND_S9 = #{extendS9,jdbcType=VARCHAR},
+      EXTEND_S10 = #{extendS10,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

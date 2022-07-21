@@ -1,0 +1,34 @@
+
+`	java:S112C"FDefine and throw a dedicated exception instead of using a generic one.(õàÖÒÿÿÿÿÿ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ó±Øµ
+n	java:S115	"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¿ÂŒd
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¡ÕıŞÿÿÿÿÿ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ĞçÃÆ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(í‚Â‰
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(•½ˆõ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(€£„â
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÌÕ•÷úÿÿÿÿ
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ªõé°şÿÿÿÿ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÀÒÑ’
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÜÄØı
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(±¥„çûÿÿÿÿ
+Q	java:S125+"<This block of commented-out lines of code should be removed.(’ó
+N
+java:S1854v"8Remove this useless assignment to local variable "uuid".(ÓğÇÆ
+L
+java:S1854z"6Remove this useless assignment to local variable "id".(––£™
+M
+java:S1854"6Remove this useless assignment to local variable "id".(óì¬
+N	java:S106u"9Replace this use of System.out or System.err by a logger.(î†‚¿
+?
+java:S1481v")Remove this unused "uuid" local variable.(ÓğÇÆ
+=
+java:S1481z"'Remove this unused "id" local variable.(––£™
+N	java:S106~"9Replace this use of System.out or System.err by a logger.(¹ĞÚÂ
+>
+java:S1481"'Remove this unused "id" local variable.(óì¬
+O	java:S106…"9Replace this use of System.out or System.err by a logger.(Ê½˜
+E
+java:S1068"/Remove this unused "maxWorkerId" private field.(ĞçÃÆ
+I
+java:S1068"3Remove this unused "maxDatacenterId" private field.(í‚Â‰

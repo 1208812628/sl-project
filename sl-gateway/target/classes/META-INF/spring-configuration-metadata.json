@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "sl.gateway",
+      "type": "com.shaolei.gateway.configuration.SlGatewayProperties",
+      "sourceType": "com.shaolei.gateway.configuration.SlGatewayProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "sl.gateway.ignore-urls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.shaolei.gateway.configuration.SlGatewayProperties"
+    }
+  ],
+  "hints": []
+}
